@@ -1,4 +1,4 @@
-(function(){
+var logs = (function(){
 	function logErrors(){
 		this.list = [];
 	}
@@ -18,6 +18,7 @@
 
 	logErrors.prototype.getAll = function(){
 		console.log(this.list);
+		//console.log('a');
 	}
 
 	logErrors.prototype.filterByDate = function(getDate){
@@ -26,8 +27,12 @@
 	window.onerror = function (msg, url, line) {
 		logs = new logErrors();
 		logs.save(msg, url, line);		
+	}
 
-		logs.getAll();
-		//logErrors.filterByDate();
+	return {
+		getAll: logErrors.prototype.getAll
 	}
 })();
+
+logs.getAll();
+
