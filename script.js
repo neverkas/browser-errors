@@ -20,6 +20,9 @@
 		console.log(this.list);
 	}
 
+	logErrors.prototype.filterByDate = function(getDate){
+	}
+
 	window.onerror = function (msg, url, line) {
 		logs = new logErrors();
 		logs.save(msg, url, line);		
@@ -27,5 +30,3 @@
 		logs.getAll();
 	}
 })();
-
-console.log(a);
