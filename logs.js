@@ -12,11 +12,9 @@ var logs = (function(){
 		obj.file 		= file;
 		obj.line 		= line;		
 		
-		if(typeof Database === 'function'){
-			db = new Database();
-
-			db.connect('https://jslogs.firebaseio.com');
-			db.insert(obj);
+		if(typeof Database === 'object'){			
+			Database.connect();
+			Database.insert(obj);
 		}
 	}
 
