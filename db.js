@@ -4,15 +4,18 @@
 
 function Database(){}
 
-Database.prototype.connect = function(getName){
-	this.db = new Firebase("https://" + getName + ".firebaseio.com");
+Database.prototype.connect = function(url){
+	this.db = new Firebase(url);
 }
 
 Database.prototype.insert = function(data){
 	if(data){		
+		console.log(data);
+		
 		this.db.push(data);
 		this.db.on("value", function(data) {
 			//console.log(data);
 		});
+	
 	}
 }
