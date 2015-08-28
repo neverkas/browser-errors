@@ -2,15 +2,15 @@
 ***	Logs
 */
 var logs = (function(){
-	save = function(msg, url, line){
+	save = function(msg, file, line, url){
 		var obj 		= {};
 		var datetime 	= new Date();
 
 		obj.datetime 	= datetime.toLocaleString(); // Date format 27/8/2015 15:15:52
-		obj.message 	= msg;
 		obj.url 		= url;
+		obj.message 	= msg;
+		obj.file 		= file;
 		obj.line 		= line;		
-		//this.list.push(error)
 		
 		if(typeof Database === 'function'){
 			db = new Database();
@@ -28,13 +28,15 @@ var logs = (function(){
 	}		
 
 	return {
-		save: save
+		save: save,
 	}
 })();
 
 
-window.onerror = function (msg, url, line) {
+window.onerror = function (msg, file, line) {
 	//obj = new logs();
 	//obj.save(msg, url, line);		
-	logs.save(msg, url, line);		
+	var url = location.href.toString();
+	
+	logs.save(msg, file, line, url);		
 }
