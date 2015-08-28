@@ -10,9 +10,8 @@ Database.prototype.connect = function(url){
 
 Database.prototype.insert = function(data){
 	if(data){		
-		console.log(data);
-		
 		this.db.push(data);
+		
 		this.db.on("value", function(data) {
 			//console.log(data);
 		});
