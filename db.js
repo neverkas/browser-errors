@@ -13,18 +13,24 @@ var Database = (function(){
 
 	insert = function(data){
 		if(data){
-			this.db.push(data);
-			
-			this.db.on("value", function(data) {
-				//console.log(data);
-			});
-		
+			this.db.push(data);		
 		}
+	}
+
+	getAll = function(){
+		var data = [];
+
+		this.db.on("value", function(item){
+			data = item.val();
+		});
+
+		return data;
 	}
 
 	return {
 		connect: connect,
 		insert: insert,
+		getAll: getAll,
 	}
 })();
 

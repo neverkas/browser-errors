@@ -13,13 +13,12 @@ var logs = (function(){
 		obj.line 		= line;		
 		
 		if(typeof Database === 'object'){			
-			Database.connect();
 			Database.insert(obj);
 		}
 	}
 
 	getAll = function(){
-		//console.log(this.list);
+		return Database.getAll();
 	}
 
 	filterByDate = function(getDate){
@@ -31,10 +30,11 @@ var logs = (function(){
 })();
 
 
+window.onload = function(){
+	Database.connect();
+}
+
 window.onerror = function (msg, file, line) {
-	//obj = new logs();
-	//obj.save(msg, url, line);		
-	var url = location.href.toString();
-	
+	var url = location.href.toString();	
 	logs.save(msg, file, line, url);		
 }
