@@ -1,8 +1,8 @@
-console.log('a');
-
 /**********
 ***	Logs
 */
+console.log('z');
+
 var logs = (function(){
 	save = function(msg, file, line, url){
 		var obj 		= {};
