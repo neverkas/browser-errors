@@ -1,6 +1,6 @@
 # Browser Errors v1.0
 
-Tiene como objetivo detectar los errores que retorna el navegador en la consola y guardarlos en una base de datos, en mi caso con Firebase.
+Tiene como finalidad detectar los errores que retorna el navegador en la consola y guardarlos en una base de datos, en mi caso con Firebase.
 Se puede utilizar en cualquier aplicación de javascript.
 los archivos necesarios son **db.js** y **logs.js**
 
