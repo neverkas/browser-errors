@@ -1,3 +1,5 @@
+// gulpjs concat connect
+
 var gulp  = require('gulp'),
   connect = require('gulp-connect')
   concat  = require('gulp-concat');
@@ -13,6 +15,7 @@ gulp.task('js', function(){
 //  gulp.src(['app/source/logs.js', 'app/source/db.js'])
   gulp.src(['app/source/*.js'])
 //  .pipe(concat('source/script.js'))
+//  .pipe(gulp.dest('.'))
 //  .pipe(connect.reload());
 });
 
